@@ -13,9 +13,19 @@ export default StyleSheet.create({
     },
     homeTitle: {
         color: '#e91e63',
-        fontSize: 80,
-        fontWeight: "bold",
-        marginBottom: 100,
+        fontSize: 40,
+        fontWeight: 'bold',
+        marginTop: 10,
+        marginBottom: 30
+    },
+
+    homeText: {
+        color: '#263238',
+        textAlign: 'center',
+        fontSize: 25,
+        marginTop: 20,
+        marginBottom: 150,
+        flexWrap: 'wrap',
     },
 
     box: {
@@ -41,6 +51,15 @@ export default StyleSheet.create({
         })
     },
 
+    boxTitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: "#43a047",
+        textAlign: 'center',
+        marginTop: 8,
+        marginBottom: 16
+    },
+
     footer: {
         flex: 1,
         position: 'absolute',
@@ -64,9 +83,14 @@ export default StyleSheet.create({
         resizeMode: 'stretch',
       },
       large: {
+        flex:1,
+        width: screenWidth,
+        height: 50,
+      },
+
+      imageDetails:{
         width: 200,
         height: 200,
-        resizeMode: 'stretch',
       },
 
     scrollView: {

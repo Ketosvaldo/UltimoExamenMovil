@@ -14,15 +14,12 @@ function Box({children}) {
                 style={styles.stretch}
                 source = {{uri: children.image}}
             />
-            <Text>{children.title}</Text>
-            <Text>{children.description}</Text>
+            <Text style={styles.boxTitle}>{children.title}</Text>
             <Button
-                title="Ver"
-                onPress={() => navigation.push('Details', {
+                title="Jugar"
+                onPress={() => navigation.navigate('Detalles', {
                     photo: children.image,
-                    name: children.title,
-                    text: children.description,
-                    number: children.stock
+                    name: children.title
                 })}
             />
         </View>

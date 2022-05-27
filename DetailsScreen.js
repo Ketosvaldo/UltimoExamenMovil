@@ -1,25 +1,35 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Button} from 'react-native';
 import styles from './styles';
-import NavigationBottom from './NavigationBottom';
 
-function DetailsScreen({route}) {
+function DetailsScreen({route, navigation}) {
 
-    const {photo, name, text, number} = route.params;
+    const {photo, name, text} = route.params;
 
+    /*
+    navigation.setOptions({
+        title: name,
+      
+        headerRight: () => (
+            <Button
+                title="Buy"
+                onPress={() => {}}
+                disabled={number === 0}
+            />
+        )
+    });
+    */
     return (
         <View>
             <View style={styles.detailsContainer}>
                 <Image
-                    style ={styles.large}
+                    style ={styles.imageDetails}
                     source = {{uri: photo}}
                 />
                 <Text style={styles.detailsTitle}>{name}</Text>
                 <Text style={styles.detailsDescription}>{text}</Text>
-                <Text style={styles.detailsStock}>Stock: {number}</Text>
             </View>
 
-            <NavigationBottom />
         </View>
     );
 }

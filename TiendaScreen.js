@@ -3,7 +3,6 @@ import {View, ScrollView} from 'react-native';
 import styles from './styles';
 import items from './items';
 import Box from './Box';
-import NavigationBottom from './NavigationBottom';
 
 function TiendaScreen() {
 
@@ -16,8 +15,6 @@ function TiendaScreen() {
             <ScrollView style={styles.scrollView}>
                 <View  style={styles.boxContainer}>{listItems}</View>
             </ScrollView>
-
-            <NavigationBottom />
         </View>
     );
 }

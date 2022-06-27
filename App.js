@@ -7,22 +7,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from './HomeScreen';
 import GamesScreen from './TiendaScreen';
-import DetailsScreen from './DetailsScreen';
+import WhichGuess from './WhichGuess';
+import GuessNumber from './GuessNumber';
+import GuessYourNumber from './GuessYourNumber';
+import PPT from './PPT';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tabs = createBottomTabNavigator();
 
-function Root2(){
-  return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="Home" component={HomeScreen}/>
-      <Drawer.Screen name="Games" component={GamesScreen}/>
-    </Drawer.Navigator>
-  );
-}
-
-function Root() {
+function TabScreen() {
   return (
     <Tabs.Navigator
     screenOptions={({ route }) => ({
@@ -42,8 +36,9 @@ function Root() {
       tabBarActiveTintColor: 'tomato',
       tabBarInactiveTintColor: 'gray',
     })}
+    initialRouteName='Home'
     >
-      <Tabs.Screen name="Home" component={Root2} options={{headerShown: false}}/>
+      <Tabs.Screen name="Home" component={HomeScreen}/>
       <Tabs.Screen name="Games" component={GamesScreen}/>
     </Tabs.Navigator>
   );
@@ -53,7 +48,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Root" component={Root} options={{headerShown: false }}/>
+        <Stack.Screen name="Tab" component={TabScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="Which Guess?" component={WhichGuess} />
+        <Stack.Screen name="Guess Number" component={GuessNumber} />
+        <Stack.Screen name="Guess Your Number" component={GuessYourNumber} />
+        <Stack.Screen name="Piedra Papel o Tijera" component={PPT} />
       </Stack.Navigator>
     </NavigationContainer>
   );

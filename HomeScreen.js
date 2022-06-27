@@ -1,5 +1,5 @@
 import React from 'react';
-import  {Button,View, Text, Image} from 'react-native';
+import  {View, Text, Image} from 'react-native';
 import styles from './styles';
 import logo from './assets/minijuegos.png';
 

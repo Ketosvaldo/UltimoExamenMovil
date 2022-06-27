@@ -17,10 +17,7 @@ function Box({children}) {
             <Text style={styles.boxTitle}>{children.title}</Text>
             <Button
                 title="Jugar"
-                onPress={() => navigation.navigate('Detalles', {
-                    photo: children.image,
-                    name: children.title
-                })}
+                onPress={() => navigation.navigate(children.direction)}
             />
         </View>
     );

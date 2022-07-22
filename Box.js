@@ -5,7 +5,6 @@ import {useNavigation} from '@react-navigation/native';
 import styles from './styles';
 
 function Box({children}) {
-
     const navigation = useNavigation();
 
     return (

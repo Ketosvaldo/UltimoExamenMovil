@@ -1,11 +1,30 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, Text, TouchableOpacity, Image} from 'react-native';
+import ProgressBar from './ProgressBar';
 
 function generateRandomNumber(){
     return Math.floor(Math.random() * (3 - 1) + 1);
 }
 
 function PPT(props) {
+    const [progress, setProgress] = useState(0);
+    const [show, setShow] = useState(true);
+
+    useEffect(() =>{
+        function updateProgress(){
+            setProgress((currentProgress) => {
+                if(currentProgress < 1){
+                    setTimeout(updateProgress, 300);
+                }
+                else{
+                    setShow(false);
+                }
+                return currentProgress + 0.01;
+            })
+        }
+        updateProgress();
+    }, []);
+
     const [enemy, setEnemy] = useState('');
     const [message, setMessage] = useState('');
     const [points, setPoints] = useState(0);
@@ -137,23 +156,28 @@ function PPT(props) {
 
     return (
         <View>
-            <Text style={styles.points}>Tus Puntos: {points}</Text>
-            <View style={styles.buttons}>
-                <TouchableOpacity onPress = {() => piedra(random)} disabled={win}>
-                    <Image style={styles.button} source={require("./assets/Images/piedra.png")}/>
-                </TouchableOpacity>
-                <TouchableOpacity onPress = {() => papel(random)} disabled={win}>
-                    <Image style={styles.button} source={require("./assets/Images/papel.png")}/>
-                </TouchableOpacity>
-                <TouchableOpacity  onPress = {() => tijera(random)} disabled={win}>
-                    <Image style={styles.button} source={require("./assets/Images/tijera.png")}/>
-                </TouchableOpacity>
-            </View>
-            <Text style = {styles.message}>{message}</Text>
-
-            <Text style={styles.enemy}>PC Puntos: {enemyPoints}</Text>
-            <Image source={enemy} />
-
+            {
+                show ? (<ProgressBar progress={progress} label = {true}/>) : 
+                (<View>
+                    <Text style={styles.points}>Tus Puntos: {points}</Text>
+                        <View style={styles.buttons}>
+                            <TouchableOpacity onPress = {() => piedra(random)} disabled={win}>
+                                <Image style={styles.button} source={require("./assets/Images/piedra.png")}/>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress = {() => papel(random)} disabled={win}>
+                                <Image style={styles.button} source={require("./assets/Images/papel.png")}/>
+                            </TouchableOpacity>
+                            <TouchableOpacity  onPress = {() => tijera(random)} disabled={win}>
+                                <Image style={styles.button} source={require("./assets/Images/tijera.png")}/>
+                            </TouchableOpacity>
+                        </View>
+                    <Text style = {styles.message}>{message}</Text>
+                    <Text style={styles.enemy}>PC Puntos: {enemyPoints}</Text>
+                    <Image source={enemy} />
+                </View>
+                )
+            }
+            
         </View>
     );
 }

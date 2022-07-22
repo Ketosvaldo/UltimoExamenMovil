@@ -1,7 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
+import ProgressBar from './ProgressBar';
 
 function Cups(props) {
+    const [progress, setProgress] = useState(0);
+    const [show, setShow] = useState(true);
+
+    useEffect(() =>{
+        function updateProgress(){
+            setProgress((currentProgress) => {
+                if(currentProgress < 1){
+                    setTimeout(updateProgress, 300);
+                }
+                else{
+                    setShow(false);
+                }
+                return currentProgress + 0.01;
+            })
+        }
+        updateProgress();
+    }, []);
+
     const [firstCup, setFirstCup] = useState(false);
     const [secondCup, setSecondCup] = useState(false);
     const [thirdCup, setThirdCup] = useState(false);
@@ -66,13 +85,22 @@ function Cups(props) {
 
     return (
         <View>
-            <Text style={styles.title}>Intentos: {tries}</Text>
-            <View style={styles.cups}>
-                <Image source={require('./assets/Images/cup.jpg')} onPress={() => analise(firstCup)} disabled={win}/>
-                <Image source={require('./assets/Images/cup.jpg')} onPress={() => analise(secondCup)} disabled={win}/>
-                <Image source={require('./assets/Images/cup.jpg')} onPress={() => analise(thirdCup)} disabled={win}/>
-            </View>
-            <Text style={styles.message}>{message}</Text>
+            {
+                show ? 
+                (<ProgressBar progress={progress} label = {true}/>)
+                :
+                (
+                    <View>
+                        <Text style={styles.title}>Intentos: {tries}</Text>
+                            <View style={styles.cups}>
+                                <Image source={require('./assets/Images/cup.jpg')} onPress={() => analise(firstCup)} disabled={win}/>
+                                <Image source={require('./assets/Images/cup.jpg')} onPress={() => analise(secondCup)} disabled={win}/>
+                                <Image source={require('./assets/Images/cup.jpg')} onPress={() => analise(thirdCup)} disabled={win}/>
+                            </View>
+                        <Text style={styles.message}>{message}</Text>
+                </View>
+                )
+            }
         </View>
     );
 }

@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from './HomeScreen';
-import GamesScreen from './TiendaScreen';
+import TiendaScreen from './TiendaScreen';
 import WhichGuess from './WhichGuess';
 import GuessNumber from './GuessNumber';
 import GuessYourNumber from './GuessYourNumber';
@@ -40,7 +40,7 @@ function TabScreen() {
     initialRouteName='Home'
     >
       <Tabs.Screen name="Home" component={HomeScreen}/>
-      <Tabs.Screen name="Games" component={GamesScreen}/>
+      <Tabs.Screen name="Games" component={TiendaScreen}/>
     </Tabs.Navigator>
   );
 }

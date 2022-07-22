@@ -13,7 +13,7 @@ function Box({children}) {
                 style={styles.stretch}
                 source = {{uri: children.image}}
             />
-            <Text style={styles.boxTitle}>{children.title}</Text>
+            <Text style={styles.boxTitle}>{children.name}</Text>
             <Button
                 title="Jugar"
                 onPress={() => navigation.navigate(children.direction)}

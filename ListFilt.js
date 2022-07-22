@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FlatList, Text } from 'react-native';
 import styles from './styles';
-import ListControls from './ListControls';
+import ListControls from './ListControls.js';
 
 function ListFilt({Controls, data, onFilter, onSort, asc}) {
     return (

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 
 function Cups(props) {
@@ -9,7 +9,7 @@ function Cups(props) {
     const [message, setMessage] = useState("");
     const [win, setWin] = useState(false);
 
-    const hideBall = () => {
+    useEffect(() => {
         let num = Math.floor(Math.random() * (3 - 1) + 1);
 
         if(num === 1)
@@ -30,7 +30,11 @@ function Cups(props) {
             setSecondCup(false);
             setThirdCup(true);
         }
-    }
+    }, [tries]);
+
+   /*  const hideBall = () => {
+        
+    } */
 
     const analise = (cup) => {
         setTries(tries + 1);
@@ -58,7 +62,7 @@ function Cups(props) {
         }
     }
 
-    hideBall();
+    //hideBall();
 
     return (
         <View>

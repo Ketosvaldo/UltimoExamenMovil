@@ -10,6 +10,7 @@ import GamesScreen from './TiendaScreen';
 import WhichGuess from './WhichGuess';
 import GuessNumber from './GuessNumber';
 import GuessYourNumber from './GuessYourNumber';
+import Cups from './Cups';
 import PPT from './PPT';
 
 const Stack = createNativeStackNavigator();
@@ -53,6 +54,7 @@ export default function App() {
         <Stack.Screen name="Guess Number" component={GuessNumber} />
         <Stack.Screen name="Guess Your Number" component={GuessYourNumber} />
         <Stack.Screen name="Piedra Papel o Tijera" component={PPT} />
+        <Stack.Screen name="Cups" component={Cups} />
       </Stack.Navigator>
     </NavigationContainer>
   );

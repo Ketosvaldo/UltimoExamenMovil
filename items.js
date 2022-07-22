@@ -8,7 +8,8 @@ const items =[
     direction:'Piedra Papel o Tijera'
     },
     {id:3, title:"Find the Ball", 
-    image:'https://media.istockphoto.com/photos/shell-game-three-red-cups-and-green-ball-3d-picture-id1210202833?k=20&m=1210202833&s=612x612&w=0&h=yTT9lpvvacFU7priEtTzf1UuWdt1QqOI1REWW-WVATs='
+    image:'https://media.istockphoto.com/photos/shell-game-three-red-cups-and-green-ball-3d-picture-id1210202833?k=20&m=1210202833&s=612x612&w=0&h=yTT9lpvvacFU7priEtTzf1UuWdt1QqOI1REWW-WVATs=',
+    direction:'Cups'
     }
 ];
 

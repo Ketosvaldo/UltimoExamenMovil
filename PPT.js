@@ -11,8 +11,9 @@ function PPT(props) {
     const [points, setPoints] = useState(0);
     const [enemyPoints, setEnemyPoints] = useState(0);
     const [win, setWin] = useState(false);
+    const [random, setRandom] = useState(generateRandomNumber());
 
-    function putMessage(msg) {
+    const  putMessage = (msg) => {
         if(msg === 1)
         {
             setMessage("Ganaste Punto!");
@@ -35,7 +36,7 @@ function PPT(props) {
         }
     }
 
-    function putEnemy(num) {
+    const putEnemy = (num) => {
         if(num === 1)
         {
             setEnemy("../assets/Images/piedra.png");
@@ -138,13 +139,13 @@ function PPT(props) {
         <View>
             <Text style={styles.points}>Tus Puntos: {points}</Text>
             <View style={styles.buttons}>
-                <TouchableOpacity onPress = {piedra(generateRandomNumber)} disabled={win}>
+                <TouchableOpacity onPress = {() => piedra(random)} disabled={win}>
                     <Image style={styles.button} source={require("./assets/Images/piedra.png")}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress = {papel(generateRandomNumber)} disabled={win}>
+                <TouchableOpacity onPress = {() => papel(random)} disabled={win}>
                     <Image style={styles.button} source={require("./assets/Images/papel.png")}/>
                 </TouchableOpacity>
-                <TouchableOpacity  onPress = {tijera(generateRandomNumber)} disabled={win}>
+                <TouchableOpacity  onPress = {() => tijera(random)} disabled={win}>
                     <Image style={styles.button} source={require("./assets/Images/tijera.png")}/>
                 </TouchableOpacity>
             </View>
